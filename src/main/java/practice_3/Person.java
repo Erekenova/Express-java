@@ -27,7 +27,8 @@ public class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    public void printInfo(){
-        System.out.println("Имя: " + this.firstName  + " Фамилия: " + this.lastName + " СНИЛС: " + this.ssn);
+
+    public void printPersonInfo() {
+        System.out.println("Имя: " + this.firstName + " Фамилия: " + this.lastName + " СНИЛС: " + this.ssn);
     }
 }
