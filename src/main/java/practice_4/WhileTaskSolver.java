@@ -7,17 +7,17 @@ public class WhileTaskSolver {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите N");
         int n = scanner.nextInt();
-        //System.out.println("Факториал равен: " + factorial(n));
+        System.out.println("Факториал равен: " + factorial(n));
         //printEvenToN(n);
-        printCountDown(n);
+       // printCountDown(n);
 
     }
     //1. Вычисление факториала с помощью while
     public static int factorial(int n){
-        int result = 0;
+        int result = 1;
         int i = 1;
         while (i <= n){
-            result = result + i;
+            result = result * i;
             i++;
         }
         return result;

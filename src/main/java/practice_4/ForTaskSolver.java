@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ForTaskSolver {
     public static void main(String[] args) {
         // 1. Вывод чисел от 1 до 100, делящихся на 3
-       //printNumbersDivide3();
+       printNumbersDivide3();
         // 2. Сумма чисел от 1 до n
       //  Scanner scanner = new Scanner(System.in);
        /* System.out.println("Введите число n:");
@@ -25,7 +25,7 @@ public class ForTaskSolver {
     }
     // 1. Вывод чисел от 1 до 100, делящихся на 3
     public static void printNumbersDivide3(){
-        for (int i = 0; i <= 100; i++ ){
+        for (int i = 1; i <= 100; i++ ){
             if(i % 3 == 0){
                 System.out.println(i);
             }
@@ -34,7 +34,7 @@ public class ForTaskSolver {
    // 2. Сумма чисел от 1 до n
     public static int sumN(int n) {
     int sum = 0;
-    for (int i= 1; i < n; i++ ){
+    for (int i= 1; i <= n; i++ ){
         sum = sum + i;
     }
     return sum;

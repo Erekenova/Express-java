@@ -4,37 +4,37 @@ import java.util.Scanner;
 
 public class IfElseTaskSolver {
     public static void main(String[] args) {
-        Scanner scaner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         //1. Определение знака числа
        /* int number;
         System.out.println("Введите число:");
-        number = scaner.nextInt();
+        number = scanner.nextInt();
         checkNumberSign(number);*/
 
         //2. Поиск наибольшего из двух чисел
     /*    System.out.println("Введите числа a и b:");
-        int a = scaner.nextInt();
-        int b = scaner.nextInt();
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
         System.out.println("Максимальное число: " + findMaxNumber(a,b)); */
         //3. Вывод оценки по шкале 1–5
-         /*  System.out.println("Введите оценку:");
-        int  number = scaner.nextInt();
-        System.out.println(printGrade(number));*/
+           System.out.println("Введите оценку:");
+        int  number = scanner.nextInt();
+        System.out.println(printGrade(number));
 
         //4. Проверка на чётность
     /*    System.out.println("Введите число:");
-        int number = scaner.nextInt();
+        int number = scanner.nextInt();
         System.out.println(checkParity(number)
         );*/
         // 5. Определение размера скидки по
       /*  System.out.println("Введите ваш возраст:");
-        int age = scaner.nextInt();
-        discauntByAge(age);*/
+        int age = scanner.nextInt();
+        discountByAge(age);*/
        // 6. Оценка результата теста по баллам
-        System.out.println("Введите количество баллов от 0-100");
-        int balls = scaner.nextInt();
+     /*   System.out.println("Введите количество баллов от 0-100");
+        int balls = scanner.nextInt();
         checkBallsFromTest(balls);
-
+*/
     }
 
     //1.Определение знака числа
@@ -57,8 +57,6 @@ public class IfElseTaskSolver {
         String s = "";
         switch (grade) {
             case 1:
-                s = "Неудовлетворительно";
-                break;
             case 2:
                 s = "Неудовлетворительно";
                 break;
@@ -89,7 +87,7 @@ public class IfElseTaskSolver {
     }
 
     // 5. Определение размера скидки по возрасту
-    public static void discauntByAge(int age) {
+    public static void discountByAge(int age) {
         if (age < 18) {
             System.out.println("Ваша скидка 25%");
         } else if (age >= 65) {
