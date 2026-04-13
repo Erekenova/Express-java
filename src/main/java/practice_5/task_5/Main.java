@@ -13,7 +13,7 @@ public class Main {
         farm.add(cow);
         farm.manageAnimal();
 
-        FarmAnimal chiken = new Chiken();
+        FarmAnimal chiken = new Chicken();
         farm.add(chiken);
         farm.manageAnimal();
     }

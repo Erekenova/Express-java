@@ -18,11 +18,11 @@ public class Main {
         Dog bim = new Dog();
         PetSystem petSystem = new PetSystem();
         petSystem.add(bim);
-        petSystem.interact();
+        petSystem.handlePet();
 
         Cat murka = new Cat();
         petSystem.add(murka);
-        petSystem.interact();
+        petSystem.handlePet();
 
     }
 

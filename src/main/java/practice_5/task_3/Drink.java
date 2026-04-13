@@ -12,7 +12,7 @@ public class Drink extends Dish{
     }
 
     @Override
-    public void showDiscription() {
+    public void showDescription() {
         System.out.println("Объем напитка " + this.volume);
     }
 }

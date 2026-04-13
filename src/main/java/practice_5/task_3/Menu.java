@@ -6,7 +6,7 @@ public class Menu {
         this.dish = dish;
         System.out.println("Блюдо добавлено!");
     }
-    public void printDiscription(){
-      dish.showDiscription();
+    public void printDescription(){
+      dish.showDescription();
     }
 }

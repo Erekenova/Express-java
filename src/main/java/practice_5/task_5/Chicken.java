@@ -1,6 +1,6 @@
 package practice_5.task_5;
 
-public class Chiken extends FarmAnimal {
+public class Chicken extends FarmAnimal {
     @Override
     public void care() {
         System.out.println("Курица требует корм с зерном.");

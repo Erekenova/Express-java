@@ -14,14 +14,14 @@ package practice_5.task_3;
 */
 public class Main {
     public static void main(String[] args) {
-      MainCourse soup = new MainCourse(70);
+      HotDish soup = new HotDish(70);
       Drink tea = new Drink(200);
       Menu menu = new Menu();
       menu.add(soup);
-      menu.printDiscription();
+      menu.printDescription();
 
       menu.add(tea);
-      menu.printDiscription();
+      menu.printDescription();
 
 
     }

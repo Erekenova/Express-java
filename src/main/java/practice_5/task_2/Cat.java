@@ -1,6 +1,6 @@
 package practice_5.task_2;
 
-public class Cat extends Pet implements Playable{
+public class Cat extends Pet {
 
         @Override
         public void eat() {
@@ -8,7 +8,7 @@ public class Cat extends Pet implements Playable{
         }
 
         @Override
-        public void play() {
+        public void interact() {
                 System.out.println("Кошка играет.");
         }
 }
