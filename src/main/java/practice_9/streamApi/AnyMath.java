@@ -1,4 +1,4 @@
-package practice_9.striamApi;
+package practice_9.streamApi;
 
 import java.util.Arrays;
 import java.util.List;

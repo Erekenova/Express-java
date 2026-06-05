@@ -1,4 +1,4 @@
-package practice_9.striamApi;
+package practice_9.streamApi;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
 public class GroupingByFirstLetter {
     public static void main(String[] args) {
         List<String> stringList = Arrays.asList("aaaa","bbb","ccc", "cout", "apple", "count","b");
-        Map<String, List<String>> groupping = stringList.stream()
+        Map<String, List<String>> grouping = stringList.stream()
                 .collect(Collectors.groupingBy(s -> s.substring(0,1)));
-        System.out.println(groupping);
+        System.out.println(grouping);
     }
 }

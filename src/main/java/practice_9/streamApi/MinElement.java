@@ -1,4 +1,4 @@
-package practice_9.striamApi;
+package practice_9.streamApi;
 
 import java.util.stream.IntStream;
 
@@ -9,7 +9,6 @@ public class MinElement {
         System.out.println(
                 IntStream.of(1,2,3,4,5,6,7,8,9)
                         .min()
-                        .getAsInt());
-
+                        .orElseThrow(() -> new RuntimeException( "Пустой список.")));
     }
 }
