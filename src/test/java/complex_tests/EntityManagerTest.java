@@ -134,7 +134,7 @@ public class EntityManagerTest {
 
     public static Stream<Arguments> positiveCasesForCheckingFilterByName() {
         return Stream.of(
-                Arguments.of("Albina",
+                Arguments.of("albina",
                         List.of(new User("Albina", 32, true))
                 ),
                 Arguments.of("Mariya",
@@ -147,7 +147,7 @@ public class EntityManagerTest {
     }
     @ParameterizedTest
     @MethodSource("positiveCasesForCheckingFilterByName")
-    @DisplayName("Проверить фильтрацию по имени")
+    @DisplayName("Проверить фильтрацию по имени, том числе на equalsIgnoreCase ")
     void checkFilteredByName(String name, List<User> expectedList) {
         User user1 = new User("Albina", 32, true);
         User user2 = new User("Nargiz", 4, true);
@@ -177,7 +177,7 @@ public class EntityManagerTest {
     }
     @ParameterizedTest
     @MethodSource("positiveCasesForCheckingFilterByActive")
-    @DisplayName("Проверить фильтрацию по имени")
+    @DisplayName("Проверить фильтрацию по активности")
     void checkFilteredByActivity(Boolean activity, List<User> expectedList) {
         User user1 = new User("Albina", 32, true);
         User user2 = new User("Aslbek", 55, false);
