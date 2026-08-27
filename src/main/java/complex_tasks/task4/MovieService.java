@@ -16,9 +16,6 @@ public class MovieService<T extends Number> {
     }
     //средняя оценка по фильму
 
-    /**
-     * Средняя оценка фильма.
-     */
     public double getAverageRating(Movie movie) {
         return service.getOrDefault(movie, List.of())
                 .stream()
@@ -27,9 +24,7 @@ public class MovieService<T extends Number> {
                 .orElse(0.0);
     }
 
-    /**
-     * Карта фильм -> средняя оценка.
-     */
+
     public Map<Movie, Double> getAverageRatings() {
         return service.entrySet()
                 .stream()
@@ -43,9 +38,7 @@ public class MovieService<T extends Number> {
                 ));
     }
 
-    /**
-     * Сортировка фильмов по средней оценке (по убыванию).
-     */
+ 
     public List<Movie> getMoviesSortedByRating() {
         return service.keySet()
                 .stream()
