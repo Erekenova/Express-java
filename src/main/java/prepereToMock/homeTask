@@ -1,0 +1,35 @@
+Задача 1.
+map: d2
+anyMatch: D2
+map: a2
+anyMatch: A2
+1
+3
+5
+Exception in thread "main" java.lang.IllegalStateException: stream has already been operated upon or closed
+at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:260)
+at java.base/java.util.stream.ReferencePipeline.reduce(ReferencePipeline.java:693)
+at prepereToMock.Main.task2(Main.java:21)
+at prepereToMock.Main.main(Main.java:26)
+Ошибка из-за того, что один и тот же Stream используется два раза. После forEach() поток stream уже закрыт.
+В Java Stream нельзя повторно использовать после терминальной операции.
+Задача 2. Ошибка компиляции, здесь пытаются положить в set типа А, объект типа B. Но тут не указано что В, является наследником А.
+Задача 3.
+a
+b
+true
+Задача 4. Boolean(String) даёт true только если строка равна "true" без учёта регистра. Всё остальное → false.
+true
+Задача 5. нельзя удалять при проходе в цикле
+Exception in thread "main" java.util.ConcurrentModificationException
+Задача 6. Будет бесконечная рекурсия при создании объекта, поэтому
+Exception in thread "main" java.lang.StackOverflowError
+Задача 7.
+2456
+Задача 8.
+Этот код не скомпилируется. switch не работает с Long
+Задача 9.
+21
+17
+Задача 10.
+Ошибка компиляции из‑за неинициализированной b
