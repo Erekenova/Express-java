@@ -11,6 +11,13 @@ public class Anagram {
         Arrays.sort(cb);
         return Arrays.equals(ca, cb);
     }
+    public static boolean isAn(String a, String b){
+        char[] a1 = a.toCharArray();
+        char[] b1 = b.toCharArray();
+        Arrays.sort(a1);
+        Arrays.sort(b1);
+        return  Arrays.equals(a1,b1);
+    }
 
     static void main() {
         System.out.println(isAnagram("arfa","fara"));

@@ -17,7 +17,8 @@ public class Prime {
         System.out.println(isPrime(8));
         System.out.println(isPrime(9));
         System.out.println(isPrime(0));
-        System.out.println(isPr(7));
+        System.out.println(isPr(9));
+        System.out.println(isPrim(9));
     }
     public static boolean isPr(int n){
         if(n < 2) return  false;
@@ -27,4 +28,12 @@ public class Prime {
         return  true;
     }
 
+    public static boolean isPrim(int n) {
+        if (n < 2) return false;
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) return false;
+        }
+
+        return true;
+    }
 }

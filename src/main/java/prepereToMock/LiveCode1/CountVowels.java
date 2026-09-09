@@ -9,16 +9,28 @@ public class CountVowels {
         }
         return count;
     }
-    public static int countV(String s){
+
+
+
+    public static int countV(String s) {
         int count = 0;
-        for (char c : s.toLowerCase().toCharArray()){
+        for (char c : s.toLowerCase().toCharArray()) {
             if ("aoeuiyаоуеёыэяию".indexOf(c) >= 0) count++;
         }
         return count;
     }
 
-    static void main() {
-        System.out.println(countVowels("Hello world"));
-        System.out.println(countV("Hello world"));
+    public static int cV(String s) {
+        int count = 0;
+        for (char c : s.toLowerCase().toCharArray()) {
+            if ("eyuioaуеёыаоэяию".indexOf(c) >= 0) {
+                count++;
+            }
+        }
+        return count;
     }
-}
+        static void main () {
+            System.out.println(countVowels("Hello world"));
+            System.out.println(countV("Hello world"));
+        }
+    }
