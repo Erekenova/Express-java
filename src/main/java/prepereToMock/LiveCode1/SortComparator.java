@@ -9,5 +9,6 @@ public class SortComparator {
         List<String> str = new ArrayList<>(List.of("apple","orange","lemon","up"));
         str.sort(Comparator.comparing(String::length));
         System.out.println(str);
+        System.out.printf("%.2f", 3.14159);
     }
 }
