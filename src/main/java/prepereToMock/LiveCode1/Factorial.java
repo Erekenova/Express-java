@@ -4,6 +4,9 @@ public class Factorial {
     static void main() {
         System.out.println(factorial(-1));
         System.out.println(fact(5));
+        System.out.println(f(5));
+        System.out.println(f(1));
+        System.out.println(f(0));
     }
     public static int factorial(int n){
         int fact = 1;
@@ -16,6 +19,13 @@ public class Factorial {
         int result = 1;
         for (int i = 1; i <= n; i++) {
             result*=i;
+        }
+        return result;
+    }
+    public static int f(int n){
+        int result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
         }
         return result;
     }

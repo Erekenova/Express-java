@@ -16,5 +16,13 @@ public class Frequency {
         List<String> list = new ArrayList<>(List.of("один", "два", "три"));
         System.out.println(findFreq(str));
         System.out.println(findFreq(list));
+        System.out.println(freq("Я иду по луне и шагаю по луне"));
+    }
+    public static Map<String,Integer> freq(String str){
+        Map<String, Integer> result = new HashMap<>();
+       for( String s : str.split("\\s+")){
+           result.put(s, result.getOrDefault(s,0) + 1);
+       }
+       return result;
     }
 }
