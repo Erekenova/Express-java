@@ -1,4 +1,4 @@
-package prepereToMock.LiveCode1;
+package prepereToMock.LiveCode1.Socks;
 
 import java.util.Objects;
 
