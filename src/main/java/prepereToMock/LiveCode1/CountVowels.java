@@ -29,6 +29,14 @@ public class CountVowels {
         }
         return count;
     }
+    public int countVowelsN(String str) {
+        int count = 0;
+        String vowels = "aeiou";
+        for (char c : str.toLowerCase().toCharArray()) {
+        if (vowels.indexOf(c) != -1) count++;
+    } return count;
+    }
+
         static void main () {
             System.out.println(countVowels("Hello world"));
             System.out.println(countV("Hello world"));

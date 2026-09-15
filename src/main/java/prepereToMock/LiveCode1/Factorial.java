@@ -29,4 +29,8 @@ public class Factorial {
         }
         return result;
     }
+    public static int factorialN(int n) {
+        if (n <= 1) return 1;
+        return n * factorial(n - 1);
+    }
 }
