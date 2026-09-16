@@ -36,4 +36,12 @@ public class Prime {
 
         return true;
     }
+    //Определить, является ли число простым (делится только на 1 и себя).
+    public static boolean isPrimeNew(int n){
+        if(n < 2) return false;
+        for (int i = 2; i * i <= n; i++) {
+            if(n % i == 0) return false;
+        }
+        return true;
+    }
 }

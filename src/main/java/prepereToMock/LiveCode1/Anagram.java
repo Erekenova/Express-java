@@ -18,9 +18,17 @@ public class Anagram {
         Arrays.sort(b1);
         return  Arrays.equals(a1,b1);
     }
+    public static boolean isAnagramNew(String a, String b){
+        char[] a1 = a.toCharArray();
+        char[] b1 = b.toCharArray();
+        Arrays.sort(a1);
+        Arrays.sort(b1);
+        return Arrays.equals(a1,b1);
 
+    }
     static void main() {
         System.out.println(isAnagram("arfa","fara"));
         System.out.println(isAnagram("arfa","faa"));
+        System.out.println(isAnagramNew("arfa","fara"));
     }
 }

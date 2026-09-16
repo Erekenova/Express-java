@@ -1,5 +1,7 @@
 package prepereToMock.LiveCode1;
 
+import java.util.Arrays;
+
 //"привет мир" -> 3
 public class CountVowels {
     public static int countVowels(String s) {
@@ -36,9 +38,17 @@ public class CountVowels {
         if (vowels.indexOf(c) != -1) count++;
     } return count;
     }
+    public static int countVowelsNew(String str){
+        int count = 0;
+        for (Character c : str.toCharArray()){
+            if("eyuioaуеёыаоэяию".indexOf(c) > -1) count++;
+        }
+        return count;
+    }
 
         static void main () {
             System.out.println(countVowels("Hello world"));
             System.out.println(countV("Hello world"));
+            System.out.println(countVowelsNew("Hello world"));
         }
     }

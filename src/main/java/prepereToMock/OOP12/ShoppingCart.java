@@ -1,7 +1,4 @@
-package prepereToMock.OOP23;
-
-import prepereToMock.OOP12.CartItem;
-import prepereToMock.OOP12.Product;
+package prepereToMock.OOP12;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -7,16 +7,14 @@ public class Contact {
     Map<String,String> contact = new HashMap<>();
 
     public Contact(Map<String, String> contact) {
+
         this.contact = contact;
     }
     public String getName() {
-
         return contact.keySet().iterator().next();
-
     }
 
     public String getNumber() {
-
         return contact.values().iterator().next();
     }
 }
