@@ -16,7 +16,7 @@ public class MovieService<T extends Number> {
     }
     //средняя оценка по фильму
 
-    public double getAverageRating(Movie movie) {
+    public synchronized double getAverageRating(Movie movie) {
         return service.getOrDefault(movie, List.of())
                 .stream()
                 .mapToDouble(Rating::doubleValue)
@@ -25,7 +25,7 @@ public class MovieService<T extends Number> {
     }
 
 
-    public Map<Movie, Double> getAverageRatings() {
+    public synchronized Map<Movie, Double> getAverageRatings() {
         return service.entrySet()
                 .stream()
                 .collect(Collectors.toMap(
@@ -39,7 +39,7 @@ public class MovieService<T extends Number> {
     }
 
  
-    public List<Movie> getMoviesSortedByRating() {
+    public synchronized List<Movie> getMoviesSortedByRating() {
         return service.keySet()
                 .stream()
                 .sorted(Comparator.comparingDouble(this::getAverageRating)

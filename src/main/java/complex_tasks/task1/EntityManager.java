@@ -18,42 +18,36 @@ import java.util.stream.Collectors;
 Фильтрация по имени: Возвращает список пользователей, чьи имена соответствуют заданной строке.
 Фильтрация по активности: Возвращает список пользователей с заданным статусом активности.
 */
-public class EntityManager<T>{
+public class EntityManager<T extends User> {
     private final CopyOnWriteArrayList<T> entities = new CopyOnWriteArrayList<>();
-    public void add(T entity){
+
+    public void add(T entity) {
         entities.add(entity);
     }
-    public boolean remove(T entity){
-       return entities.remove(entity);
+
+    public boolean remove(T entity) {
+        return entities.remove(entity);
     }
-    public List<T> getAll(){
+
+    public List<T> getAll() {
         return List.copyOf(entities);
     }
 
-    public  List<T> filterByAge(int min, int max){
+    public List<T> filterByAge(int min, int max) {
         return entities.stream()
-                .filter(entity -> entity instanceof User)
-                .map(e -> (User) e)
                 .filter(user -> user.getAge() >= min && user.getAge() <= max)
-                .map(user -> (T) user)
                 .collect(Collectors.toList());
     }
-    public List<T> filterByName(String name){
+
+    public List<T> filterByName(String name) {
         return entities.stream()
-                .filter(e -> e instanceof User)
-                .map(e -> (User) e)
                 .filter(user -> user.getName().equalsIgnoreCase(name))
-                .map(user -> (T) user)
                 .collect(Collectors.toList());
     }
-    public List<T> filterByActivity(boolean active){
+
+    public List<T> filterByActivity(boolean active) {
         return entities.stream()
-                .filter(e -> e instanceof User)
-                .map( e -> (User) e)
                 .filter(user -> user.isActive() == active)
-                .map(user -> (T) user)
                 .collect(Collectors.toList());
     }
-
-
 }

@@ -7,6 +7,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -91,5 +95,35 @@ class MovieServiceTest {
 
         assertEquals(9.0, service.getAverageRatings().get(movie1));
         assertEquals(7.0, service.getAverageRatings().get(movie2));
+    }
+
+    @Test
+    void concurrentAddRatingAndReadAverageTest() throws InterruptedException {
+        int threads = 10;
+        int perThread = 20;
+        ExecutorService pool = Executors.newFixedThreadPool(threads);
+        CountDownLatch start = new CountDownLatch(1);
+        CountDownLatch done = new CountDownLatch(threads);
+        for (int i = 0; i < threads; i++) {
+            pool.submit(() -> {
+                try {
+                    start.await();
+                    for (int j = 0; j < perThread; j++) {
+                        service.addRating(movie1, new Rating<>(8));
+                        service.getAverageRating(movie1);
+                        service.getAverageRatings();
+                        service.getMoviesSortedByRating();
+                    }
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                } finally {
+                    done.countDown();
+                }
+            });
+        }
+        start.countDown();
+        assertTrue(done.await(10, TimeUnit.SECONDS));
+        pool.shutdown();
+        assertEquals(8.0, service.getAverageRating(movie1));
     }
 }

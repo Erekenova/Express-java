@@ -13,9 +13,9 @@ import java.util.stream.Collectors;
 Метод для получения товара по категории. Если в указанной категории нет товаров, должно выбрасываться исключение OutOfStockException.*/
 public class InventoryService {
     Map<String, List<Product>> storage = new HashMap<>();
-    private Boolean isInventoryOpen = true;
+    private boolean isInventoryOpen = true;
 
-    public void setInventoryOpen(Boolean inventoryOpen) {
+    public void setInventoryOpen(boolean inventoryOpen) {
         isInventoryOpen = inventoryOpen;
     }
     public void addProduct(Product product){
@@ -43,4 +43,11 @@ public class InventoryService {
                 .collect(Collectors.toList());
     }
 
+    public List<Product> filterByCategory(String category) {
+        return storage.values()
+                .stream()
+                .flatMap(List::stream)
+                .filter(product -> product.getCategory().equalsIgnoreCase(category))
+                .collect(Collectors.toList());
+    }
 }

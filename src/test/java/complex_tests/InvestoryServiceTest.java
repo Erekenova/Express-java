@@ -56,4 +56,17 @@ public class InvestoryServiceTest {
         assertEquals("IPhone17Pro",filterd.get(0).getName());
     }
 
+    @Test
+    public void checkFilterByCategory() {
+        InventoryService service = new InventoryService();
+        Product book = new Product("Garry Potter", 1200.00, "book");
+        Product textbook = new Product("Java", 3000.00, "book");
+        Product phone = new Product("IPhone17Pro", 90000.00, "phone");
+        service.addProduct(book);
+        service.addProduct(textbook);
+        service.addProduct(phone);
+        List<Product> books = service.filterByCategory("BOOK");
+        assertEquals(2, books.size());
+    }
+
 }

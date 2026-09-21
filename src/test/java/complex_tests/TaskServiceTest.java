@@ -9,6 +9,10 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -86,5 +90,32 @@ public class TaskServiceTest {
         assertEquals(2,result.get(0).getId());
         assertEquals(1,result.get(1).getId());
         assertEquals(3,result.get(2).getId());
+    }
+
+    @Test
+    public void checkConcurrentAddAndRead() throws InterruptedException {
+        int threads = 10;
+        ExecutorService pool = Executors.newFixedThreadPool(threads);
+        CountDownLatch start = new CountDownLatch(1);
+        CountDownLatch done = new CountDownLatch(threads);
+        for (int i = 0; i < threads; i++) {
+            int id = i + 1;
+            pool.submit(() -> {
+                try {
+                    start.await();
+                    taskService.addTask(new Task<>(id, Status.NEW, Priority.HIGH, LocalDate.of(2026, 8, 27)));
+                    taskService.getAllTasks();
+                    taskService.findByStatus(Status.NEW);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                } finally {
+                    done.countDown();
+                }
+            });
+        }
+        start.countDown();
+        assertTrue(done.await(10, TimeUnit.SECONDS));
+        pool.shutdown();
+        assertEquals(threads, taskService.getAllTasks().size());
     }
 }

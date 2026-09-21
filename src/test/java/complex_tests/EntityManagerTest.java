@@ -12,6 +12,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -47,7 +51,7 @@ public class EntityManagerTest {
         //Проверка по
         assertEquals("Albina", users.get(0).getName());
         assertEquals(32, users.get(0).getAge());
-        assertEquals(true, users.get(0).isActive());
+        assertTrue(users.get(0).isActive());
 
 
     }
@@ -187,6 +191,35 @@ public class EntityManagerTest {
         manager.add(user3);
         List<User> actualList = manager.filterByActivity(activity);
         assertEquals(expectedList, actualList);
+    }
+
+    @Test
+    @DisplayName("Проверить потокобезопасное добавление пользователей")
+    void checkConcurrentAdd() throws InterruptedException {
+        int threads = 10;
+        int perThread = 20;
+        ExecutorService pool = Executors.newFixedThreadPool(threads);
+        CountDownLatch start = new CountDownLatch(1);
+        CountDownLatch done = new CountDownLatch(threads);
+        for (int i = 0; i < threads; i++) {
+            int threadIndex = i;
+            pool.submit(() -> {
+                try {
+                    start.await();
+                    for (int j = 0; j < perThread; j++) {
+                        manager.add(new User("User" + threadIndex + "-" + j, 20 + j, true));
+                    }
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                } finally {
+                    done.countDown();
+                }
+            });
+        }
+        start.countDown();
+        assertTrue(done.await(10, TimeUnit.SECONDS));
+        pool.shutdown();
+        assertEquals(threads * perThread, manager.getAll().size());
     }
 }
 

@@ -12,7 +12,7 @@ import java.util.List;
 public class GradeService <T extends Number>{
     private List<StudentGrade<T>> grades = new ArrayList<>();
     public synchronized void addGrade(StudentGrade<T> grade){
-        if (grade.getGrade().intValue() < 0){
+        if (grade.getGrade().doubleValue() < 0){
             throw new InvalidGradeException("Оценка не может быть отрицательной!");
         }
         grades.add(grade);
@@ -24,7 +24,7 @@ public class GradeService <T extends Number>{
                 .average()
                 .orElseThrow(() -> new IllegalArgumentException("Нет оценок по предмету:" + subject));
     }
-    public List<StudentGrade<T>> getAll(){
+    public synchronized List<StudentGrade<T>> getAll(){
         return List.copyOf(grades);
     }
 }
