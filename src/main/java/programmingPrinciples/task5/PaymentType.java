@@ -11,5 +11,5 @@ public abstract class PaymentType {
         return amount;
     }
 
-    public abstract void paid();
+    public abstract void pay();
 }

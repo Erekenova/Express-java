@@ -1,12 +1,8 @@
 package programmingPrinciples.task6;
+
 public abstract class Bird {
-    public void makeBirdFly(FlyingBird bird) {
+    public void makeFly(FlyingBird bird){
         bird.fly();
+
     }
 }
-
-
-
-
-
-

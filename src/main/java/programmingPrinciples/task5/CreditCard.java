@@ -6,7 +6,8 @@ public class CreditCard extends PaymentType{
     }
 
     @Override
-    public void paid() {
+    public void pay() {
         System.out.println("Оплата кредитной картой на сумму " + getAmount());
     }
+
 }
