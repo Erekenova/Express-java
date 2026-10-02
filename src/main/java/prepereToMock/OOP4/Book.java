@@ -13,10 +13,6 @@ public class Book {
         return title;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
     @Override
     public String toString() {
         return "Book{" +

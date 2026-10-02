@@ -26,8 +26,7 @@ public  abstract class Notification {
     protected String recipient;
     protected String massage;
 
-    public Notification() {
-    }
+
 
     public Notification(String recipient, String massage) {
         this.recipient = recipient;

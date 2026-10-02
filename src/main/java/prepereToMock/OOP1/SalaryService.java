@@ -1,5 +1,6 @@
 package prepereToMock.OOP1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*"Система работает с разными типами сотрудников:
@@ -28,16 +29,15 @@ import java.util.List;
 Борис получил 2400
 Мария получила 5000"*/
 public class SalaryService {
-    public static void paySalaries(List<Employee> employees){
+    List<Employee> employeeList = new ArrayList<>();
+    public void paySalaries(List<Employee> employees){
         for (Employee employee : employees) {
             System.out.println(employee.getName() + " получил " + employee.paySalary());
         }
+
     }
-    static void main() {
-        List<Employee> employees = List.of(
-                new FixedSalaryEmployee("Anna", 3000),
-                new HourlyEmployee("Boris",160,15),
-                new CommissionEmployee("Arina", 10,50000));
-        paySalaries(employees);
+    public void add(Employee employee){
+        employeeList.add(employee);
     }
+
 }

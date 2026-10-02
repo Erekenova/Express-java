@@ -38,36 +38,38 @@ Potion
 
 Potion → 4"*/
 public class Inventory {
-    Map<String,Integer> inventory = new HashMap<>();
+    Map<String, Integer> inventory = new HashMap<>();
+
     //обавить предмет в инвентарь
-    public void addItem(String item, Integer quantity){
-        if(inventory.containsKey(item)){
-            inventory.put(item,inventory.get(item) + 1);
-        }
-        else inventory.put(item,quantity);
+    public void addItem(String item, Integer quantity) {
+        if (hasItem(item))  {
+            inventory.put(item, inventory.get(item) + quantity);
+        } else inventory.put(item, quantity);
     }
-   // использовать предмет
-    public void useItem(String item){
-        if(inventory.containsKey(item)){
-           int val =  inventory.get(item);
-           if (val > 1){
-            inventory.put(item, inventory.get(item) - 1);}
-           else inventory.remove(item);
-        }
-        else System.out.println("Такого предмета нет");
+
+    // использовать предмет
+    public void useItem(String item) {
+        if (hasItem(item)) {
+            int val = inventory.get(item);
+            if (val > 1) {
+                inventory.put(item, inventory.get(item) - 1);
+            } else inventory.remove(item);
+        } else System.out.println("Такого предмета нет");
 
     }
-   // узнать количество предмета
-    public int itemQuantity(String item){
-       return inventory.get(item);
+
+    // узнать количество предмета
+    public int itemQuantity(String item) {
+        return inventory.getOrDefault(item, 0);
     }
-   // проверить, есть ли предмет в инвентаре
-    public  boolean hasItem(String item){
+
+    // проверить, есть ли предмет в инвентаре
+    public boolean hasItem(String item) {
         return inventory.containsKey(item);
     }
-   // показать количество разных предметов
-    public int sizeInventory(){
 
+    // показать количество разных предметов
+    public int sizeInventory() {
         return inventory.size();
     }
 
