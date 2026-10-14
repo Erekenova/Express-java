@@ -1,3 +1,4 @@
+/*
 package prepereToMock.OOP4;
 
 public class Main
@@ -24,3 +25,4 @@ public class Main
         library.showAvailableBook();
     }
 }
+*/

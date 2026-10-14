@@ -1,3 +1,4 @@
+/*
 package prepereToMock.OOP4;
 
 public class BookItem {
@@ -31,4 +32,4 @@ public class BookItem {
     public BookStatus getStatus() {
         return status;
     }
-}
+}*/

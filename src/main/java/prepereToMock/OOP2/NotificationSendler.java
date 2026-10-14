@@ -6,7 +6,7 @@ import java.util.List;
 public class NotificationSendler {
     List<Notification> notificationList = new ArrayList<>();
 
-    public void sendAllNotification(List<Notification> notificationList) {
+    public void sendAllNotification() {
         for (Notification notification : notificationList) {
             notification.send();
         }

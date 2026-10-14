@@ -1,3 +1,4 @@
+/*
 package prepereToMock.OOP4;
 
 public class Book {
@@ -21,3 +22,4 @@ public class Book {
                 '}';
     }
 }
+*/

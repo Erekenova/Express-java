@@ -30,8 +30,8 @@ import java.util.List;
 Мария получила 5000"*/
 public class SalaryService {
     List<Employee> employeeList = new ArrayList<>();
-    public void paySalaries(List<Employee> employees){
-        for (Employee employee : employees) {
+    public void paySalaries(){
+        for (Employee employee : employeeList) {
             System.out.println(employee.getName() + " получил " + employee.paySalary());
         }
 

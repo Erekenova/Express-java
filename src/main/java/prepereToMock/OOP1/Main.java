@@ -10,7 +10,7 @@ public class Main {
         salaryService.add(employee1);
         salaryService.add(employee2);
         salaryService.add(employee3);
-        salaryService.paySalaries(salaryService.employeeList);
+        salaryService.paySalaries();
 
     }
 }

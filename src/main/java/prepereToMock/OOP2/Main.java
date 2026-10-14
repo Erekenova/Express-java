@@ -10,6 +10,6 @@ public class Main {
         SmsNotification smsNotification = new SmsNotification("89270585351", "World");
         List<Notification> notifications = List.of(emailNotification, pushNotification, smsNotification);
         NotificationSendler notificationSendler = new NotificationSendler();
-        notificationSendler.sendAllNotification(notifications);
+        notificationSendler.sendAllNotification();
     }
 }

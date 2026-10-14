@@ -1,3 +1,4 @@
+/*
 package prepereToMock.OOP4;
 
 import complex_tasks.task6.Status;
@@ -40,3 +41,4 @@ public  class Library {
     }
 
 }
+*/
